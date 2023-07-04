@@ -1,0 +1,19 @@
+{
+  "name": "crud-api-node-solidity",
+  "version": "1.0.0",
+  "description": "a Crud app using the blockchain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mateus Navarro",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "web3": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
