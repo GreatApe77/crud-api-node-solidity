@@ -42,8 +42,18 @@ app.get("/photos/:id",async (req,res)=>{
     const {id} = req.params
     const web3 = new Web3(FANTOM_TESTNET_RPC_URL)
     const crud = new web3.eth.Contract(ABI,ADDRESS)
-    const photo = await crud.methods.idToPhoto(Number(id))
-    res.send("Sucess")
+    const isValidParam = await crud.methods.photoExists(Number(id)).call()
+    if(!isValidParam){
+        return res.status(400).json({message:"This ID Does not Exist!"})
+    }
+    const photo = await crud.methods.idToPhoto(Number(id)).call()
+    const photoJson = {
+        id:Number(photo.id),
+        imageUrl:photo.imageUrl,
+        description:photo.description,
+        timestamp:Number(photo.timestamp)
+    }
+    res.status(200).json(photoJson)
 })
 
 app.listen(PORT,()=>{
