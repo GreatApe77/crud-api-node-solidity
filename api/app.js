@@ -47,10 +47,11 @@ app.post("/photos",async (req,res)=>{
         const tx = await crud.methods.createPhoto(imageUrl,description).send({from:wallet.address})
 
         if(Boolean(tx)){
-            res.status(201).json({message:"Posted a Photo!"})
+            res.status(201).json({message:"Updated a Photo!"})
         }        
     } catch (error) {
         console.error(error)
+        res.status(500).json({message:"Internal server error"})
     }
     
 
@@ -69,6 +70,7 @@ app.put("/photos/:id",async (req,res)=>{
         }        
     } catch (error) {
         console.error(error)
+        res.status(500).json({message:"Internal server error"})
     }
     
 
