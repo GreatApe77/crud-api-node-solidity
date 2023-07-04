@@ -177,3 +177,11 @@ const ABI =[
 
 
 const ADDRESS = "0xa1AE06e9D769fb768778FF04E541396f0Ae09370"
+
+require("dotenv").config()
+module.exports = {
+    ABI,
+    ADDRESS,
+    FANTOM_TESTNET_RPC_URL: process.env.FANTOM_TESTNET_RPC_URL,
+    PRIVATE_KEY: process.env.PRIVATE_KEY // use a test account. for preventing permanent fund loss
+}
