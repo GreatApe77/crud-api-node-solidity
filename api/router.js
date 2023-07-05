@@ -10,7 +10,7 @@ const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 const router = express.Router();
 
-router.get("/photos", async (req, res) => {
+router.get("/", async (req, res) => {
 	//console.log(req)
 	const web3 = new Web3(FANTOM_TESTNET_RPC_URL);
 	const crud = new web3.eth.Contract(ABI, ADDRESS);
@@ -30,7 +30,7 @@ router.get("/photos", async (req, res) => {
 
 	res.status(200).json(photosJson);
 });
-router.get("/photos/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
 	const { id } = req.params;
 	const web3 = new Web3(FANTOM_TESTNET_RPC_URL);
 	const crud = new web3.eth.Contract(ABI, ADDRESS);
@@ -47,7 +47,7 @@ router.get("/photos/:id", async (req, res) => {
 	};
 	res.status(200).json(photoJson);
 });
-router.post("/photos", async (req, res) => {
+router.post("/", async (req, res) => {
 	const { imageUrl, description } = req.body;
 	try {
 		const web3 = new Web3(
@@ -67,7 +67,7 @@ router.post("/photos", async (req, res) => {
 		res.status(500).json({ message: "Internal server error" });
 	}
 });
-router.put("/photos/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
 	const { id } = req.params;
 	const { imageUrl, description } = req.body;
 	try {

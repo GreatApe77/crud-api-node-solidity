@@ -1,3 +1,4 @@
+require("dotenv").config();
 const ABI = [
 	{
 		inputs: [
@@ -176,7 +177,7 @@ const ABI = [
 
 const ADDRESS = "0xa1AE06e9D769fb768778FF04E541396f0Ae09370";
 
-require("dotenv").config();
+
 module.exports = {
 	ABI,
 	ADDRESS,

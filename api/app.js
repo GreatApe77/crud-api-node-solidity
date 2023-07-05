@@ -9,8 +9,8 @@ const app = express();
 app.use(express.static("public"));
 app.use(express.json());
 
-app.use(router);
+app.use("/photos",router);
 
 app.listen(PORT, () => {
-	console.log(`Listening at ${PORT}\n URL: http://localhost:${PORT}`);
+	console.log(`Listening at ${PORT}\nURL: http://localhost:${PORT}`);
 });
