@@ -1,3 +1,34 @@
-*{
-    background-color: red;
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Oswald&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #d6dbdf;
+    font-family: 'Oswald', sans-serif;
+}
+.header{
+    padding: 8px;
+    background-color:#28292c ;
+    box-shadow: 2px 6px 23px -8px rgba(0,0,0,0.75);
+
+}
+.post{
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.posts img{
+    width: 400px;
+    border-radius: 10px;
+    
+}
+.mainTitle{
+    text-align: center;
+}
+body{
+    background-color: #28292c;
 }
