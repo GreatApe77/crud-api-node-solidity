@@ -7,12 +7,30 @@
     color: #d6dbdf;
     font-family: 'Oswald', sans-serif;
 }
+body{
+    background-color: #28292c;
+}
+.links{
+    color: #8ce9a6;
+    text-decoration: none;
+    font-style: italic;
+    transition: all 0.3s;
+}
+.links:hover{
+    color: #09b43a;
+}
 .header{
+    display: flex;
+    justify-content:space-between ;
     padding: 8px;
     background-color:#28292c ;
     box-shadow: 2px 6px 23px -8px rgba(0,0,0,0.75);
 
 }
+.navBar ul li{
+    list-style-type: square;
+}
+
 .post{
     text-align: center;
     width: 100%;
@@ -36,7 +54,4 @@
     margin-top: 5px;
     margin-bottom: 45px;
     font-size: 30px;
-}
-body{
-    background-color: #28292c;
 }
