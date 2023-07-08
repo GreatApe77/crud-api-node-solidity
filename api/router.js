@@ -52,6 +52,7 @@ router.get("/:id", async (req, res) => {
 });
 router.post("/", async (req, res) => {
 	const { imageUrl, description } = req.body;
+	console.log(req.body)
 	try {
 		const web3 = new Web3(
 			new HDWalletProvider(PRIVATE_KEY, FANTOM_TESTNET_RPC_URL)
