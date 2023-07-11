@@ -1,55 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
 		/>
-    <title>Document</title>
-</head>
-<body>
-    <header class="header">
-        <div>
-            <h1 class="title">Photo poster</h1>
-            <h3>
-                Built by GreatApe77
-                <a target="_blank" href="https://github.com/GreatApe77"
-                    ><i class="fab fa-github"></i
-                ></a>
-            </h3>
-        </div>
-        <div>
-            <nav class="navBar">
-                <ul >
-                    <li>
-                        <a class="links" href="./post.html">Post</a>
-                    </li>
-                    <li>
-                        <a class="links" href="./view.html">View Single Photo</a>
-                    </li>
-                    <li>
-                        <a class="links" href="./">Home</a>
-                    </li>
-                    <li>
-                        <a class="links" href="./delete.html">Delete</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main class="postMain">
-        <form  class="form" >
-            <input id="index-input" type="number" min="1" placeholder="ID:" required>
-            <input id="password-input" type="number" min="1" placeholder="Password:" required>
-            <input id="delete-btn" class="btn" type="button" value="Delete">
-        </form>
-        <section>
-            <div class="posts">
-            </div>
-        </section>
-    </main>
-</body>
+		<title>Document</title>
+	</head>
+	<body>
+		<header class="header">
+			<div>
+				<h1 class="title">Photo poster</h1>
+				<h3>
+					Built by GreatApe77
+					<a target="_blank" href="https://github.com/GreatApe77"
+						><i class="fab fa-github"></i
+					></a>
+				</h3>
+			</div>
+			<div>
+				<nav class="navBar">
+					<ul>
+						<li>
+							<a class="links" href="./post.html">Post</a>
+						</li>
+						<li>
+							<a class="links" href="./view.html">View Single Photo</a>
+						</li>
+						<li>
+							<a class="links" href="./">Home</a>
+						</li>
+						<li>
+							<a class="links" href="./delete.html">Delete</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="postMain">
+			<form class="form">
+				<input
+					id="index-input"
+					type="number"
+					min="1"
+					placeholder="ID:"
+					required
+				/>
+				<input
+					id="imageUrl-input"
+					type="text"
+				
+					placeholder="New Image URL:"
+					required
+				/>
+				<input
+					id="description-input"
+				
+					placeholder="New Description: "
+					required
+				/>
+
+				<input id="update-btn" class="btn" type="button" value="Update" />
+			</form>
+			<section>
+				<div class="posts"></div>
+			</section>
+		
+		</main>
+		<script src="./js/edit.js"></script>
+	</body>
 </html>
