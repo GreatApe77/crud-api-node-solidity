@@ -30,7 +30,53 @@ body{
 .navBar ul li{
     list-style-type: square;
 }
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    gap: 10px;
+}
+.form input{
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    color: #28292c;
+}
+.postMain{
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#submit-btn{
+    border-radius: 4px;
+    border-color: #09b43a;
+    color: #28292c;
+    background-color: #09b43a;
 
+    font-size: 18px;
+    max-width: fit-content;
+    margin: auto;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+#submit-btn:hover{
+    background-color: #28292c;
+    color: #09b43a;
+}
+.disabled-button{
+    border-radius: 4px;
+    border-color: #3c3c3c;
+    color: #3c3c3c;
+    background-color: #979797;
+
+    font-size: 18px;
+    max-width: fit-content;
+    margin: auto;
+    transition: all 0.3s;
+    cursor: default;
+}
 .post{
     text-align: center;
     width: 100%;
