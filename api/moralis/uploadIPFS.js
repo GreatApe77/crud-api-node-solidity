@@ -1,4 +1,4 @@
-require("dotenv").config()
+
 const Moralis = require("moralis").default;
 
 

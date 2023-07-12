@@ -184,5 +184,6 @@ module.exports = {
 	FANTOM_TESTNET_RPC_URL: process.env.FANTOM_TESTNET_RPC_URL,
 	PRIVATE_KEY: process.env.PRIVATE_KEY, // use a test account. for preventing permanent fund loss
 	PORT: process.env.PORT || 8080,
-	PASSWORD: process.env.PASSWORD
+	PASSWORD: process.env.PASSWORD,
+	MORALIS_API_KEY:process.env.MORALIS_API_KEY
 };
