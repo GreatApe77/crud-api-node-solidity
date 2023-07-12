@@ -50,6 +50,21 @@ body{
     align-items: center;
     justify-content: center;
 }
+.postMainPhotos{
+    height: 85vh;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+@media screen and (max-width:598px) {
+    .form{
+        margin-top: 50px;
+    }
+    
+}
 #submit-btn{
     border-radius: 4px;
     border-style: solid;
