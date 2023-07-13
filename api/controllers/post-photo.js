@@ -15,7 +15,9 @@ const postPhoto = async (req, res) => {
 		
 		const description = req.body.description
 		const name = req.file.originalname
-
+		console.log(base64EncodedBuffer)
+		console.log(description)
+		
 		try {
 			const imageUrl = await uploadIPFS(base64EncodedBuffer,name)
 			const web3 = new Web3(

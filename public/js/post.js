@@ -1,5 +1,9 @@
 const submitBtn = document.querySelector("#submit-btn");
-
+const uploadForm = document.querySelector("#upload-form");
+const uploadFileInput = document.querySelector("#upload-file-input");
+const uploadDescriptionInput = document.querySelector(
+	"#upload-description-input"
+);
 async function postForm(description, imageUrl) {
 	//const descriptionInput = document.querySelector("#description-input").value;
 
@@ -36,10 +40,10 @@ submitBtn.addEventListener("click", async (event) => {
 		const response = await postForm(descriptionInput, imageUrlInput);
 
 		submitBtn.disabled = false;
-        clearInput()
+		clearInput();
 		alert(response.message);
 	} catch (error) {
-        clearInput()
+		clearInput();
 		console.error(error);
 		alert("Could not post a photo");
 		submitBtn.disabled = false;
@@ -57,3 +61,26 @@ function clearInput() {
 
 	document.querySelector("#image-url-input").value = "";
 }
+
+uploadForm.addEventListener("submit", (event) => {
+	event.preventDefault();
+	const file = uploadFileInput.files[0];
+	console.log(file);
+	const description = uploadDescriptionInput.value;
+	const formData = new FormData();
+	formData.append("description", description);
+	formData.append("file", file);
+	fetch("/photos", {
+		method: "POST",
+		body: formData,
+	})
+		.then((res) => {
+			if (res.status === 201) {
+				alert("Posted a photo!");
+			} else {
+				alert("Could not post a photo!");
+			}
+		})
+
+		.catch((err) => console.log(err));
+});
