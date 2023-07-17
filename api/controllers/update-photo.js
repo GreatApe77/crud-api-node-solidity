@@ -1,5 +1,5 @@
 
-const {crudContract } = require("../config");
+const {crudContract, account } = require("../config");
 
 
 
@@ -11,7 +11,7 @@ const updatePhoto = async (req, res) => {
 		
 		const tx = await crudContract.methods
 			.updatePhoto(id,imageUrl, description)
-			.send({ from: wallet.address });
+			.send({ from: account.address });
 
 		if (Boolean(tx)) {
 			res.status(201).json({ message: "Updated a Photo!" });
