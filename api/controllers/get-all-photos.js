@@ -1,13 +1,10 @@
-const { FANTOM_TESTNET_RPC_URL, ABI, ADDRESS } = require("../config");
-const { Web3 } = require("web3");
+const { crudContract } = require("../config");
 
 const getAllPhotos = async (req, res) => {
 	//console.log(req)
 	try {
-		const web3 = new Web3(FANTOM_TESTNET_RPC_URL);
-		const crud = new web3.eth.Contract(ABI, ADDRESS);
 
-		const photos = await crud.methods.getAllPhotos().call();
+		const photos = await crudContract.methods.getAllPhotos().call();
 		const photosJson = [];
 		for (let i = 0; i < photos.length; i++) {
 			const photo = {
