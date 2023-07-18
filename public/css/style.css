@@ -298,7 +298,7 @@ body{
     color: #444444;
   }
   @media screen and (max-width: 800px){
-    #menu {position:relative}
+    #menu {position:relative;text-align: center;}
     #menu ul {background:#111;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none}
     #menu ul.sub-menus {width:100%;position:static;}
     #menu ul.sub-menus a {padding-left:30px;}
