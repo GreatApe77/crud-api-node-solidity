@@ -2,23 +2,32 @@ function getPhotos() {
 	fetch("/photos", { method: "GET" })
 		.then((data) => data.json())
 		.then((jsonData) => {
-			console.log(jsonData);
-			const reversedPhotos = jsonData.reverse()
-			const posts = [];
-			for (let i = 0; i < jsonData.length; i++) {
-				const photoDiv = document.createElement("div");
-				const photoImg = document.createElement("img");
-				const photoParagraph = document.createElement("p");
-				photoParagraph.className = "description";
-				photoImg.src = reversedPhotos[i].imageUrl;
-				photoParagraph.textContent = reversedPhotos[i].description;
-				photoDiv.className = "post";
-				photoDiv.append(photoImg, photoParagraph);
-				posts.push(photoDiv);
+			const photos = jsonData.reverse();
+			for (let i = 0; i < photos.length; i++) {
+				const date = new Date(photos[i].timestamp * 1000).toString();
+				const formatedDate = date.split(" ").slice(0, 5);
+				document.querySelector(".posts").innerHTML += `
+				<div class="post">
+				<img src="${photos[i].imageUrl}" alt="Img"/>
+				<p class="description">
+				${photos[i].description}
+				<p>${
+					formatedDate[0] +
+					" " +
+					formatedDate[1] +
+					" " +
+					formatedDate[2] +
+					" " +
+					formatedDate[3] +
+					" " +
+					formatedDate[4]
+				}</p>
+				</p>
+				
+				</div>
+				`;
 			}
-			for (let i = 0; i < posts.length; i++) {
-				document.querySelector(".posts").append(posts[i]);
-			}
+
 		});
 }
 

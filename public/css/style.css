@@ -106,8 +106,8 @@ body{
     width: 100%;
     max-width: 600px;
     margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 .posts img{
     width: 400px;
@@ -123,8 +123,8 @@ body{
     text-align: center;
 }
 .description{
-    margin-top: 5px;
-    margin-bottom: 45px;
+    margin-top: 4px;
+    margin-bottom: 4px;
     font-size: 30px;
 }
 
