@@ -6,7 +6,7 @@ const {crudContract, account } = require("../config");
 const updatePhoto = async (req, res) => {
     const {id} = req.params
 	const { imageUrl, description } = req.body;
-	console.log(req.body)
+	
 	try {
 		
 		const tx = await crudContract.methods
