@@ -26,7 +26,7 @@ const getAllPhotos = async (req, res) => {
 		return res.status(200).json(photosJson);
 	} catch (error) {
 		console.error(error);
-		res.status(500).json({ message: "Internal server error" });
+		return res.status(500).json({ message: "Internal server error" });
 	}
 };
 
