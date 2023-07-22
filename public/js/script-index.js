@@ -3,14 +3,14 @@ function getPhotos() {
 		.then((data) => data.json())
 		.then((jsonData) => {
 			const photos = jsonData.reverse();
-			renderPhotos(photos,photos.length)
+			renderPhotos(photos);
 		});
 }
 
-getPhotos();
+//getPhotos();
 
-function renderPhotos(photos, range) {
-	for (let i = 0; i < range; i++) {
+function renderPhotos(photos) {
+	for (let i = 0; i < photos.length; i++) {
 		const date = new Date(photos[i].timestamp * 1000).toString();
 		const formatedDate = date.split(" ").slice(0, 5);
 		document.querySelector(".posts").innerHTML += `
@@ -35,3 +35,28 @@ function renderPhotos(photos, range) {
 		`;
 	}
 }
+
+async function loadMore(fromIndex, toIndex) {
+	try {
+		const response = await fetch(`/photos?from=${fromIndex}&to=${toIndex}`);
+		const jsonPhotoSlice = await response.json();
+		return jsonPhotoSlice;
+	} catch (error) {
+		throw new Error(error);
+	}
+}
+async function seeMore(index) {
+	const photosSlice = await loadMore(index, index + 10);
+	renderPhotos(photosSlice);
+}
+
+
+function listen(){
+	let i = 0
+	let max = 86
+	document.getElementById("see-more-btn").addEventListener("click",()=>{
+		seeMore(i)
+		i = i+5		
+	})
+}
+listen()
