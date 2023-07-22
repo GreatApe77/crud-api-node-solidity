@@ -17,7 +17,13 @@ const getAllPhotos = async (req, res) => {
 				photosJson.push(photo);
 			}
 		}
-		res.status(200).json(photosJson);
+		
+		if(req.query.from||req.query.to){
+			const {from,to} = req.query
+			const slicedPhotosJson = photosJson.slice(Number(from),Number(to))
+			return res.status(200).json(slicedPhotosJson)
+		}
+		return res.status(200).json(photosJson);
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ message: "Internal server error" });
