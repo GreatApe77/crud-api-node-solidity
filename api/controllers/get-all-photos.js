@@ -3,25 +3,20 @@ const { crudContract } = require("../config");
 const getAllPhotos = async (req, res) => {
 	//console.log(req)
 	try {
-
 		const photos = await crudContract.methods.getAllPhotos().call();
-		const photosJson = [];
-		for (let i = 0; i < photos.length; i++) {
-			const photo = {
-				id: Number(photos[i].id),
-				imageUrl: photos[i].imageUrl,
-				description: photos[i].description,
-				timestamp: Number(photos[i].timestamp),
-			};
-			if (photo.id !== 0) {
-				photosJson.push(photo);
-			}
-		}
-		
-		if(req.query.from||req.query.to){
-			const {from,to} = req.query
-			const slicedPhotosJson = photosJson.slice(Number(from),Number(to))
-			return res.status(200).json(slicedPhotosJson)
+
+		const filteredPhotos = photos.filter((photo) => Number(photo.id) !== 0);
+		const photosJson = filteredPhotos.map((photo) => ({
+			id: Number(photo.id),
+			imageUrl: photo.imageUrl,
+			description: photo.description,
+			timestamp: Number(photo.timestamp),
+		}));
+
+		if (req.query.from || req.query.to) {
+			const { from, to } = req.query;
+			const slicedPhotosJson = photosJson.slice(Number(from), Number(to));
+			return res.status(200).json(slicedPhotosJson);
 		}
 		return res.status(200).json(photosJson);
 	} catch (error) {
