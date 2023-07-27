@@ -1,16 +1,32 @@
-
-
 function getPhotos() {
+	const spinner = createSpinner()
+	document.querySelector(".posts").append(spinner)
 	fetch("/photos", { method: "GET" })
-		.then((data) => data.json())
+		.then((data) => {
+			deleteSpinner(spinner)
+			return data.json();
+		})
 		.then((jsonData) => {
-
-			renderPhotos(jsonData.reverse())
-			
+			renderPhotos(jsonData.reverse());
 		});
 }
 
+function createSpinner(){
 
+
+	const mainDiv = document.createElement("div")
+	mainDiv.setAttribute("class","lds-roller")
+	for (let i = 0; i < 8; i++) {
+		mainDiv.append(document.createElement("div"))
+		
+	}
+	mainDiv.style.textAlign ="center"
+	return mainDiv
+}
+
+function deleteSpinner(spinner){
+	spinner.remove()
+}
 function renderPhotos(photos) {
 	for (let i = 0; i < photos.length; i++) {
 		const date = new Date(photos[i].timestamp * 1000).toString();
@@ -37,8 +53,5 @@ function renderPhotos(photos) {
 		`;
 	}
 }
-
-
-
 
 getPhotos();
