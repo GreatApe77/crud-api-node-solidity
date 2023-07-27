@@ -35,10 +35,9 @@ searchBtn.addEventListener("click", async () => {
 			photoDiv.append(photoImg);
 			photoDiv.append(photoParagraph);
 			document.querySelector(".posts").append(photoDiv);
+		} else {
+			alert("Photo Does not exist");
 		}
-        else{
-            alert("Photo Does not exist")
-        }
 	} catch (error) {
 		alert(error);
 	}

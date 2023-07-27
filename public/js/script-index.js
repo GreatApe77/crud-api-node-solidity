@@ -1,9 +1,9 @@
 function getPhotos() {
-	const spinner = createSpinner()
-	document.querySelector(".posts").append(spinner)
+	const spinner = createSpinner();
+	document.querySelector(".posts").append(spinner);
 	fetch("/photos", { method: "GET" })
 		.then((data) => {
-			deleteSpinner(spinner)
+			deleteSpinner(spinner);
 			return data.json();
 		})
 		.then((jsonData) => {
@@ -11,21 +11,18 @@ function getPhotos() {
 		});
 }
 
-function createSpinner(){
-
-
-	const mainDiv = document.createElement("div")
-	mainDiv.setAttribute("class","lds-roller")
+function createSpinner() {
+	const mainDiv = document.createElement("div");
+	mainDiv.setAttribute("class", "lds-roller");
 	for (let i = 0; i < 8; i++) {
-		mainDiv.append(document.createElement("div"))
-		
+		mainDiv.append(document.createElement("div"));
 	}
-	mainDiv.style.textAlign ="center"
-	return mainDiv
+	mainDiv.style.textAlign = "center";
+	return mainDiv;
 }
 
-function deleteSpinner(spinner){
-	spinner.remove()
+function deleteSpinner(spinner) {
+	spinner.remove();
 }
 function renderPhotos(photos) {
 	for (let i = 0; i < photos.length; i++) {

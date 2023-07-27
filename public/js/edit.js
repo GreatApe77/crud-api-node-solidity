@@ -15,24 +15,23 @@ updateBtn.addEventListener("click", async () => {
 		return;
 	}
 
-    const data = {
-        imageUrl:imageUrlInput.value,
-        description:descriptionInput.value
-    }
-    console.log(data)
+	const data = {
+		imageUrl: imageUrlInput.value,
+		description: descriptionInput.value,
+	};
+	console.log(data);
 	const response = await fetch(`/photos/${indexInput.value}`, {
-        method:"PUT",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify(data)
-    });
-    if(response.status ===201){
-        alert("Updated a photo!")
-    }
-    else{
-        alert("Could not update a photo")
-    }
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(data),
+	});
+	if (response.status === 201) {
+		alert("Updated a photo!");
+	} else {
+		alert("Could not update a photo");
+	}
 });
 
 function nomEmptyInput(id, url, descriptionInput) {
