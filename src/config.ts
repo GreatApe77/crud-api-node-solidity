@@ -20,12 +20,14 @@ const web3Account = web3.eth.accounts.privateKeyToAccount(
 
 const crudContract: Contract<ContractAbi> = new web3.eth.Contract(ABI, ADDRESS);
 
-const config = {
+export const config = {
 	web3,
 	wallet,
 	web3Account,
 	PORT,
 	crudContract,
+	PASSWORD,
+	MORALIS_API_KEY
 };
 
 //const account = web3.eth.accounts.privateKeyToAccount("0x"+PRIVATE_KEY)
