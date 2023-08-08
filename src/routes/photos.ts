@@ -3,6 +3,7 @@ import express, { Router } from 'express'
 
 import multer from 'multer';
 import getAllPhotos from '../controllers/get-all-photos';
+import getSinglePhoto from '../controllers/get-single-photo';
 
 const photosRouter:Router = express.Router()
 const upload = multer()
@@ -11,7 +12,7 @@ const upload = multer()
 //route managing (por enquanto so todas as fotos)
 
 photosRouter.get("/",getAllPhotos)
-
+photosRouter.get("/:id",getSinglePhoto)
 
 
 

@@ -1,19 +1,7 @@
 
 import {config} from '../config'
 import {Request,Response} from 'express'
-type PhotosArray = Photo[]
-interface Photo  {
-    id: bigint,
-    imageUrl:string,
-    description:string,
-    timestamp:bigint
-} 
-interface PhotoJson {
-    id: number,
-    imageUrl:string,
-    description:string,
-    timestamp:number
-} 
+import { PhotoJson,PhotosArray,Photo } from '../@types';
 const getAllPhotos = async (req:Request, res:Response) => {
 	//console.log(req)
 	try {
