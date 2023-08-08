@@ -6,6 +6,7 @@ import getAllPhotos from '../controllers/get-all-photos';
 import getSinglePhoto from '../controllers/get-single-photo';
 import updatePhoto from '../controllers/update-photo';
 import deletePhoto from '../controllers/delete-photo';
+import isAuth from '../middlewares/authorization';
 
 const photosRouter:Router = express.Router()
 const upload = multer()
@@ -16,7 +17,7 @@ const upload = multer()
 photosRouter.get("/",getAllPhotos)
 photosRouter.get("/:id",getSinglePhoto)
 photosRouter.put("/:id",updatePhoto)
-photosRouter.delete("/:id",deletePhoto)
+photosRouter.delete("/:id",isAuth,deletePhoto)
 
 export default photosRouter
 /*const express = require("express");
