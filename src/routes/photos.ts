@@ -18,7 +18,7 @@ photosRouter.get("/",getAllPhotos)
 photosRouter.get("/:id",getSinglePhoto)
 photosRouter.put("/:id",updatePhoto)
 photosRouter.delete("/:id",isAuth,deletePhoto)
-
+photosRouter.post("/",upload.single("file"))
 export default photosRouter
 /*const express = require("express");
 const multer = require("multer")

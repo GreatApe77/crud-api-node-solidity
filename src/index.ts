@@ -2,7 +2,13 @@ import {config} from './config'
 
 import express from 'express'
 import router from './router'
+import Moralis from "moralis"
+(async ()=>{
 
+    await Moralis.start({
+        apiKey:config.MORALIS_API_KEY
+    })
+})()
 
 const app = express()
 
