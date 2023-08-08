@@ -17,7 +17,10 @@ interface PhotoJson {
 const getAllPhotos = async (req:Request, res:Response) => {
 	//console.log(req)
 	try {
-		const photos:PhotosArray = await config.crudContract.methods.getAllPhotos().call();
+		const photos: PhotosArray = await (config.crudContract.methods.getAllPhotos as any)().call();
+
+
+
 
 		const filteredPhotos = photos.filter((photo:Photo) => Number(photo.id) !== 0);
 		const photosJson:PhotoJson[] = filteredPhotos.map((photo:Photo) => ({
