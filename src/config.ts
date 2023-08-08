@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import { Contract, ContractAbi, Web3 } from "web3";
 import { ABI, ADDRESS } from "./contract-data";
-
+import HDWalletProvider = require("@truffle/hdwallet-provider");
 dotenv.config();
 const FANTOM_TESTNET_RPC_URL =
 	process.env.FANTOM_TESTNET_RPC_URL || "https://rpc.ankr.com/fantom_testnet/";
@@ -11,18 +11,17 @@ const PORT = process.env.PORT || 8080;
 const PASSWORD = process.env.PASSWORD;
 const MORALIS_API_KEY = process.env.MORALIS_API_KEY;
 
-const web3 = new Web3(FANTOM_TESTNET_RPC_URL);
+const web3 = new Web3(new HDWalletProvider(PRIVATE_KEY!,FANTOM_TESTNET_RPC_URL!) as any);
 
-const wallet = web3.eth.accounts.wallet.add("0x" + String(PRIVATE_KEY));
 const web3Account = web3.eth.accounts.privateKeyToAccount(
-	"0x" + String(PRIVATE_KEY)
+	"0x"+ String(PRIVATE_KEY)
 );
+//const wallet = web3.eth.accounts.wallet.add(web3Account);
 
 const crudContract: Contract<ContractAbi> = new web3.eth.Contract(ABI, ADDRESS);
 
 export const config = {
 	web3,
-	wallet,
 	web3Account,
 	PORT,
 	crudContract,
