@@ -6,11 +6,12 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "npx tsc",
-    "dev": "npx tsx watch src/index.ts"
+    "dev": "npx tsx watch src/index.ts",
+    "prod":"npx tsc & node dist/index.js"
   },
   "keywords": [],
   "author": "Mateus Navarro",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.1.12",
     "dotenv": "^16.3.1",
