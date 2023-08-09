@@ -1,17 +1,17 @@
-
-import {config} from '../config'
-import {Request,Response} from 'express'
-import { PhotoJson,PhotosArray,Photo } from '../@types';
-const getAllPhotos = async (req:Request, res:Response) => {
+import { config } from "../config";
+import { Request, Response } from "express";
+import { PhotoJson, PhotosArray, Photo } from "../@types";
+const getAllPhotos = async (req: Request, res: Response) => {
 	//console.log(req)
 	try {
-		const photos: PhotosArray = await (config.crudContract.methods.getAllPhotos as any)().call();
+		const photos: PhotosArray = await (
+			config.crudContract.methods.getAllPhotos as any
+		)().call();
 
-
-
-
-		const filteredPhotos = photos.filter((photo:Photo) => Number(photo.id) !== 0);
-		const photosJson:PhotoJson[] = filteredPhotos.map((photo:Photo) => ({
+		const filteredPhotos = photos.filter(
+			(photo: Photo) => Number(photo.id) !== 0
+		);
+		const photosJson: PhotoJson[] = filteredPhotos.map((photo: Photo) => ({
 			id: Number(photo.id),
 			imageUrl: photo.imageUrl,
 			description: photo.description,
@@ -26,11 +26,14 @@ const getAllPhotos = async (req:Request, res:Response) => {
 		return res.status(200).json(photosJson);
 	} catch (error) {
 		console.error(error);
-		return res.status(500).json({ message: "Internal server error" });
+		return res.status(500).json({
+			success: false,
+			message: "Internal server error",
+		});
 	}
 };
 
-export default getAllPhotos
+export default getAllPhotos;
 /*
 const { crudContract } = require("../config");
 
