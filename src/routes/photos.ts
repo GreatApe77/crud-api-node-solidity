@@ -7,6 +7,7 @@ import getSinglePhoto from '../controllers/get-single-photo';
 import updatePhoto from '../controllers/update-photo';
 import deletePhoto from '../controllers/delete-photo';
 import isAuth from '../middlewares/authorization';
+import postPhoto from '../controllers/post-photo';
 
 const photosRouter:Router = express.Router()
 const upload = multer()
@@ -18,7 +19,7 @@ photosRouter.get("/",getAllPhotos)
 photosRouter.get("/:id",getSinglePhoto)
 photosRouter.put("/:id",updatePhoto)
 photosRouter.delete("/:id",isAuth,deletePhoto)
-photosRouter.post("/",upload.single("file"))
+photosRouter.post("/",upload.single("file"),postPhoto)
 export default photosRouter
 /*const express = require("express");
 const multer = require("multer")
