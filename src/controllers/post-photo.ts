@@ -2,6 +2,7 @@ import { config } from "../config";
 import { Request, Response } from "express";
 import uploadIPFS from "../moralis/uploadIPFS";
 import { TransactionReceipt } from "web3";
+import { createPhoto } from "../smart-contract-methods/create-photo";
 const postPhoto = async (req: Request, res: Response) => {
 	if (req.file && req.body.description) {
 		const buffer = req.file.buffer;
@@ -13,15 +14,12 @@ const postPhoto = async (req: Request, res: Response) => {
 		try {
 			const imageUrl = await uploadIPFS(base64EncodedBuffer, name);
 
-			const tx: TransactionReceipt = await (
-				config.crudContract.methods.createPhoto as any
-			)(imageUrl, description).send({ from: config.web3Account.address });
-
+			const txReceipt = await createPhoto(imageUrl,description)
 			return res.status(201).json({
 				success:true,
 				message: "Posted a Photo!",
 				imageUrl: imageUrl,
-				transactionHash: tx.transactionHash
+				transactionHash: txReceipt.transactionHash
 			});
 		} catch (error) {
 			return res
