@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { config } from "../config";
+
 import { Photo, PhotoJson } from "../@types";
 import { photoExists } from "../smart-contract-methods/photo-exists";
 import { idToPhoto } from "../smart-contract-methods/id-to-photo";

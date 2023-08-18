@@ -1,4 +1,4 @@
-import { config } from "../config";
+
 import { Request, Response } from "express";
 import uploadIPFS from "../moralis/uploadIPFS";
 import { TransactionReceipt } from "web3";
