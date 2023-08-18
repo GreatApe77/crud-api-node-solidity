@@ -1,12 +1,11 @@
-import { config } from "../config";
+
 import { Request, Response } from "express";
-import { PhotoJson, PhotosArray, Photo } from "../@types";
+import { PhotoJson, Photo } from "../@types";
+import { getAllPhotosMethod } from "../smart-contract-methods/get-all-photos";
 const getAllPhotos = async (req: Request, res: Response) => {
 	//console.log(req)
 	try {
-		const photos: PhotosArray = await (
-			config.crudContract.methods.getAllPhotos as any
-		)().call();
+		const photos: Photo[] = await getAllPhotosMethod();
 
 		const filteredPhotos = photos.filter(
 			(photo: Photo) => Number(photo.id) !== 0

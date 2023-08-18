@@ -1,18 +1,16 @@
 import { Request, Response } from "express";
 
-import { config } from "../config";
 import { TransactionReceipt } from "web3";
+import { deletePhotoMethod } from "../smart-contract-methods/delete-photo";
 const deletePhoto = async (req: Request, res: Response) => {
 	const { id } = req.params;
 	try {
-		const tx: TransactionReceipt = await (
-			config.crudContract.methods.deletePhoto as any
-		)(Number(id)).send({ from: config.web3Account.address });
+		const txReceipt: TransactionReceipt = await deletePhotoMethod(Number(id))
 
 		return res.status(200).json({
 			success: true,
 			message: "Deleted a Photo!",
-			transactionHash: tx.transactionHash,
+			transactionHash: txReceipt.transactionHash,
 		});
 	} catch (error) {
 		console.error(error);

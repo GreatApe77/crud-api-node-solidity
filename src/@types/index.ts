@@ -1,4 +1,4 @@
-export type PhotosArray = Photo[]
+
 export interface Photo  {
     id: bigint,
     imageUrl:string,
