@@ -30,15 +30,13 @@ const postPhoto = async (req: Request, res: Response) => {
 		const { imageUrl, description } = req.body;
 
 		try {
-			const tx: TransactionReceipt = await (
-				config.crudContract.methods.createPhoto as any
-			)(imageUrl, description).send({ from: config.web3Account.address });
+			const txReceipt: TransactionReceipt = await createPhoto(imageUrl,description);
 
 			return res.status(201).json({
 				success: true,
 				message: "Posted a Photo!",
 				imageUrl: imageUrl,
-				transactionHash: tx.transactionHash,
+				transactionHash: txReceipt.transactionHash,
 			});
 		} catch (error) {
 			console.error(error);
