@@ -1,20 +1,20 @@
 import { Request, Response } from "express";
 import { config } from "../config";
 import { Photo, PhotoJson } from "../@types";
+import { photoExists } from "../smart-contract-methods/photo-exists";
+import { idToPhoto } from "../smart-contract-methods/id-to-photo";
 
 const getSinglePhoto = async (req: Request, res: Response) => {
-	const { id } = req.params;
+	const id = Number(req.params.id);
 	try {
-		const isValidParam: boolean = await (
-			config.crudContract.methods.photoExists as any
-		)(Number(id)).call();
-
+		const isValidParam: boolean = await photoExists(id);
 		if (!isValidParam) {
-			return res.status(400).json({ message: "This ID Does not Exist!" });
+			return res.status(400).json({ 
+				success:false,
+				message: "This ID Does not Exist!"
+			 });
 		}
-		const photo: Photo = await (config.crudContract.methods.idToPhoto as any)(
-			Number(id)
-		).call();
+		const photo: Photo = await idToPhoto(id);
 		const photoJson: PhotoJson = {
 			id: Number(photo.id),
 			imageUrl: photo.imageUrl,
