@@ -4,8 +4,8 @@ import { TransactionReceipt } from "web3";
 
 /**
  * o método createPhoto dos smart contract e seus parametros
- * @param imageUrl 
- * @param description 
+ * @param imageUrl url de imagem para ser armazenado no contrato
+ * @param description uma descricao para a imagem
  * @returns Um objeto do tipo Transactionreceipt contendo os hashs e outras informacoes
  */
 export async function createPhoto(imageUrl:string,description:string):Promise<TransactionReceipt>{
