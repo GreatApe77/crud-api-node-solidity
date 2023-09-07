@@ -5,6 +5,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Post from "./routes/Post";
 import Home from "./routes/Home";
+import Search from './routes/Search.jsx';
+import Update from './routes/Update.jsx';
+import Delete from './routes/Delete.jsx';
+
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -19,6 +23,21 @@ const router = createBrowserRouter([
         path: "/post",
     
         element: <Post />,
+      },
+      {
+        path: "/search",
+    
+        element: <Search />,
+      },
+      {
+        path: "/update",
+    
+        element: <Update />,
+      },
+      {
+        path: "/delete",
+    
+        element: <Delete />,
       },
     ]
 	},
