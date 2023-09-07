@@ -12,7 +12,7 @@ import Moralis from "moralis"
 
 const app = express()
 
-app.use(express.static("public"))
+app.use(express.static("frontend/dist"))
 app.use(express.json())
 
 app.use(router)
