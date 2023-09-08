@@ -58,7 +58,7 @@ function Search(){
                                 <CustomCard
                             imageUrl={notFoundSVG} 
                             description={"FOTO NAO EXISTE ...Ela pode ter sido apagada ou até mesmo nunca criada... :("}
-                            timestamp={Number("1688562326")}
+                            timestamp={Number("0000000000")}
                              />
                             )
                             
