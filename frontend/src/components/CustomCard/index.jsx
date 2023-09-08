@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css"
+
 import dayjs from "dayjs";
 
 
@@ -13,6 +13,7 @@ export default function CustomCard({ imageUrl, description, timestamp }) {
         <Card.Text><h3 >{description}</h3></Card.Text>
         <Card.Text>Created: {formattedDate}</Card.Text>
       </Card.Body>
+      
     </Card>
   );
 }

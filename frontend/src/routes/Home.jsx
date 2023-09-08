@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CustomCard from "../components/CustomCard";
-import filiminSvg from "../assets/filimin.svg";
-import dayjs from "dayjs";
+
+
 import Spinner from "react-bootstrap/Spinner";
 function Home() {
 	const [photos, setPhotos] = useState([]);

@@ -7,7 +7,7 @@ export default function Header() {
 		<div>
 			<Navbar className="p-3" bg="dark" variant="dark" expand="lg">
 				<Navbar.Brand href="#home" className="d-flex align-items-center ">
-					<img src={filiminSvg} width="60px" alt="Filimin svg"  />
+					<img  src={filiminSvg} width="75px" alt="Filimin svg"  />
 					<h1 className="mx-4 d-inline ">
             <span>Fili Media</span>
           </h1>

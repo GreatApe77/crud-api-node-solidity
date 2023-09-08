@@ -61,7 +61,7 @@ export default function SearchForm({searchPhoto}) {
 									<Spinner animation="border" variant="light" />
 								</div>
 							) : (
-								"DELETE PHOTO!"
+								"SEARCH"
 							)}
 						</Button>
 					</fieldset>
