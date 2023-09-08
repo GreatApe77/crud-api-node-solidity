@@ -1,29 +1,29 @@
-import { useState } from "react"
+
 import PostForm from "../components/PostForm"
 
 
 function Post(){
-    const [loading, setLoading] = useState(false)
-    function postPhoto(description,file){
-        return new Promise((resolve,reject)=>{
-            setLoading(true)
-            if(description&&file){
-                setTimeout(()=>{
-                    setLoading(false)
-                    resolve(`Description: ${description} and file is here too`)
-                },3000)
-            }else{
-                setLoading(false)
-                reject("No Description !")
-            }
-            
-        })
+    
+    async function postPhoto(description,file){
+       try {
+            const formData = new FormData()
+            formData.append("description",description)
+            formData.append("file",file)
+
+            const response = await fetch("/photos",{
+                method:"POST",
+                body: formData
+            })
+            return response.status
+       } catch (error) {
+        throw new Error("Error in posting foto")
+       }
     }
     return(
         <div className="d-flex flex-column justify-content-center ">
             <div className="mx-auto">
 
-            <PostForm loading={loading} postPhoto={postPhoto} />
+            <PostForm  postPhoto={postPhoto} />
             </div>
         
         </div>
