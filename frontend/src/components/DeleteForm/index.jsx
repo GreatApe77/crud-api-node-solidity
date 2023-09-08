@@ -7,21 +7,24 @@ export default function DeleteForm({deletePhoto}) {
 	
 	const [loading,setLoading] = useState(false)
     const [id,setId] = useState("")
-
+    const [password,setPassword] = useState("")
 
 	
 	//Change Handlers
 	function handleChange(e){
 		setId(e.target.value)
 	}
-
+    function handlePasswordChange(e){
+        setPassword(e.target.value)
+    }
 	//submit handlers
     function handleSubmit(e){
 		e.preventDefault()
 		if(!id) return
+        if(!password) return
 		setLoading(true)
 
-		deletePhoto(id)
+		deletePhoto(id,password)
 		.then((status)=>{
 			if (status == 200) {
                 alert("Deleted a photo!");
@@ -60,6 +63,17 @@ export default function DeleteForm({deletePhoto}) {
 								onChange={handleChange}
 							/>
 						</Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+							<Form.Label className="text-white">Password (Contate GreatApe77):</Form.Label>
+							<Form.Control
+								value={password}
+								type="password"
+                                
+								placeholder="Password"
+								required
+								onChange={handlePasswordChange}
+							/>
+						</Form.Group>
 
 						<Button variant="success" className="mx-auto" type="submit">
 							{loading ? (
@@ -74,6 +88,7 @@ export default function DeleteForm({deletePhoto}) {
 					</fieldset>
 				</Form>
 			</div>
+            
 		</div>
 	);
 }
