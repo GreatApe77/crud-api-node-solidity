@@ -1,13 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import filiminSvg from "../../assets/filimin.svg"
+import filiminSvg from "../../assets/filiminv2.svg"
 export default function Header() {
 	return (
 		<div>
 			<Navbar className="p-3" bg="dark" variant="dark" expand="lg">
 				<Navbar.Brand href="#home" className="d-flex align-items-center ">
-					<img  src={filiminSvg} width="75px" alt="Filimin svg"  />
+					<img  src={filiminSvg} style={{borderRadius:"4px",padding:"1px",backgroundColor:"#000000"}} width="80px" alt="Filimin svg"  />
 					<h1 className="mx-4 d-inline ">
             <span>Fili Media</span>
           </h1>

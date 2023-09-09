@@ -1,5 +1,5 @@
 import {config} from './config'
-
+import morgan from "morgan"
 import express from 'express'
 import router from './router'
 import Moralis from "moralis"
@@ -11,7 +11,7 @@ import Moralis from "moralis"
 })()
 
 const app = express()
-
+app.use(morgan("tiny"))
 app.use(express.static("frontend/dist"))
 app.use(express.json())
 
