@@ -8,7 +8,7 @@ function Post(){
     
     return(
         <div className="d-flex flex-column justify-content-center ">
-            <div className="mx-auto">
+            <div className="mx-auto p-5">
 
             <PostForm  postPhoto={postPhoto} />
             </div>

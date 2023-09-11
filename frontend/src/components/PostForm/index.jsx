@@ -73,7 +73,7 @@ export default function PostForm({postPhoto}) {
 						<Button variant="success" className="mx-auto" type="submit">
 							{loading ? (
 								<div className="d-flex align-items-center">
-									<span div>Loading...</span>
+									<span >Loading...</span>
 									<Spinner animation="border" variant="light" />
 								</div>
 							) : (
