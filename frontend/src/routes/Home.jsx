@@ -3,6 +3,7 @@ import CustomCard from "../components/CustomCard";
 
 
 import Spinner from "react-bootstrap/Spinner";
+import PhotoAlbum from "../components/PhotoAlbum";
 function Home() {
 	const [photos, setPhotos] = useState([]);
 	useEffect(() => {
@@ -21,7 +22,8 @@ function Home() {
 			<h1 className="text-center mt-5 text-white">Filimin Moments</h1>
 			<div className="text-center">
 				{photos.length ? (
-					photos.map((photo) => <CustomCard imageUrl={photo.imageUrl} timestamp={photo.timestamp} description={photo.description} />)
+					<PhotoAlbum photos={photos}/>
+					
 				) : (
 					<Spinner className="text-white mt-2" />
 				)}
