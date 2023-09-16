@@ -81,6 +81,7 @@ export default function PhotoAlbum({ photos }) {
 								description={photo.description}
 								imageUrl={photo.imageUrl}
 								timestamp={photo.timestamp}
+								id={photo.id}
 								key={key}
 							/>
 						))
