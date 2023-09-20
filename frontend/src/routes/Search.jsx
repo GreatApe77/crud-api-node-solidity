@@ -53,6 +53,7 @@ function Search(){
                             imageUrl={photoData.imageUrl} 
                             description={photoData.description}
                             timestamp={photoData.timestamp}
+                            id={photoData.id}
                              />
                             ):(
                                 <CustomCard
