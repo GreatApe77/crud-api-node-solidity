@@ -10,9 +10,7 @@ import { config } from "../config";
  * @returns um objeto TransactionReceipt
  */
 export async function updatePhotoMethod(id:number,imageUrl:string,description:string):Promise<TransactionReceipt>{
-    const txReceipt: TransactionReceipt = await (
-        config.crudContract.methods.updatePhoto as any
-    )(id, imageUrl, description).send({ from: config.web3Account.address });
+    const txReceipt: TransactionReceipt = await config.crudContract.methods.updatePhoto(id,imageUrl,description).send({ from: config.web3Account.address });
 
     return txReceipt
 }

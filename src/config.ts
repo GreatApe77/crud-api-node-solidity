@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { Contract, ContractAbi, Web3 } from "web3";
+import {  Web3 } from "web3";
 import { ABI, ADDRESS } from "./contract-data";
 import HDWalletProvider = require("@truffle/hdwallet-provider");
 dotenv.config();
@@ -18,7 +18,7 @@ const web3Account = web3.eth.accounts.privateKeyToAccount(
 );
 //const wallet = web3.eth.accounts.wallet.add(web3Account);
 
-const crudContract: Contract<ContractAbi> = new web3.eth.Contract(ABI, ADDRESS);
+const crudContract= new web3.eth.Contract(ABI, ADDRESS);
 
 export const config = {
 	web3,

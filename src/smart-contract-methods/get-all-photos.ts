@@ -7,7 +7,7 @@ import { config } from "../config";
  * @returns Retorna um Array do struct Photo do contrato
  */
 export async function getAllPhotosMethod():Promise<Photo[]>{
-    const photos:Photo[] = await (config.crudContract.methods.getAllPhotos as any)().call()
+    const photos:Photo[] = await config.crudContract.methods.getAllPhotos().call()
 
     return photos
 

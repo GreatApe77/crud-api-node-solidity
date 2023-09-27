@@ -1,7 +1,7 @@
 
-import {ContractAbi} from 'web3'
+
 export const ADDRESS:string = "0xa1AE06e9D769fb768778FF04E541396f0Ae09370";
-export const ABI:ContractAbi = [
+export const ABI = [
 	{
 		inputs: [
 			{
@@ -175,5 +175,5 @@ export const ABI:ContractAbi = [
 		stateMutability: "view",
 		type: "function",
 	},
-];
+] as const;
 

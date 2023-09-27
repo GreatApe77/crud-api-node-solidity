@@ -8,7 +8,7 @@ import { config } from "../config";
  * @returns true se a foto existir e falso se ela nao existir
  */
 export async function photoExists(id:number):Promise<boolean>{
-    const exists:boolean = await (config.crudContract.methods.photoExists as any)(id).call()
+    const exists:boolean = await config.crudContract.methods.photoExists(id).call()
 
     return exists
 

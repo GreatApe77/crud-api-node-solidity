@@ -8,8 +8,8 @@ import { config } from "../config";
  * @returns uma struct Photo do contrato
  */
 export async function idToPhoto(id:number):Promise<Photo>{
-    const photo:Photo = await (config.crudContract.methods.idToPhoto as any)(id).call()
-
+    //const photo:Photo = await (config.crudContract.methods.idToPhoto as any)(id).call()
+    const photo:Photo = await config.crudContract.methods.idToPhoto(id).call()
+   // return photo
     return photo
-
 }
