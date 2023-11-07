@@ -16,7 +16,9 @@ app.use(express.static("frontend/dist"))
 app.use(express.json())
 
 app.use(router)
-
+app.get("/*",(req,res)=>{
+    res.sendFile("frontend/dist/index.html",{root:"."})
+})
 app.listen(config.PORT,()=>{
     console.log(`Listening at ${config.PORT}\nURL: http://localhost:${config.PORT}`);
 })
