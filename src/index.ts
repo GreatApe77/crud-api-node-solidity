@@ -1,6 +1,8 @@
+import "express-async-errors"
 import {config} from './config'
 import morgan from "morgan"
-import express, { NextFunction, Request, Response } from 'express'
+import express from 'express'
+import {errorMidleware} from './middlewares/error'
 import router from './router'
 import Moralis from "moralis"
 (async ()=>{
@@ -19,7 +21,7 @@ app.use(router)
 app.get("/*",(req,res)=>{
     res.sendFile("frontend/dist/index.html",{root:"."})
 })
-app.use()
+app.use(errorMidleware)
 app.listen(config.PORT,()=>{
     console.log(`Listening at ${config.PORT}\nURL: http://localhost:${config.PORT}`);
 })

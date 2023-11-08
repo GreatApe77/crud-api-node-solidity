@@ -1,8 +1,17 @@
-
 import { NextFunction, Request, Response } from "express";
+import { ApiError } from "../helpers/api-errors";
 
-const errorMidleware = async  (err: Error,req :Request,res:Response,next:NextFunction)=>{
-
-    console.log(err);
-    res.status(500).json("Caiu no middleware de erro")
-}
+export const errorMidleware = async (
+	err: Error & Partial<ApiError>,
+	req: Request,
+	res: Response,
+	next: NextFunction
+) => {
+	console.log(err);
+	const statusCode = err.statusCode ?? 500;
+	const message = err.statusCode ? err.message : "Internal Server Error";
+	res.status(statusCode).json({
+		success: false,
+		message: message,
+	});
+};

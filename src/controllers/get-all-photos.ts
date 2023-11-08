@@ -1,35 +1,27 @@
-
 import { Request, Response } from "express";
 import { PhotoJson, Photo } from "../@types";
 import { getAllPhotosMethod } from "../smart-contract-methods/get-all-photos";
 const getAllPhotos = async (req: Request, res: Response) => {
 	//console.log(req)
-	try {
-		const photos: Photo[] = await getAllPhotosMethod();
 
-		const filteredPhotos = photos.filter(
-			(photo: Photo) => Number(photo.id) !== 0
-		);
-		const photosJson: PhotoJson[] = filteredPhotos.map((photo: Photo) => ({
-			id: Number(photo.id),
-			imageUrl: photo.imageUrl,
-			description: photo.description,
-			timestamp: Number(photo.timestamp),
-		}));
+	const photos: Photo[] = await getAllPhotosMethod();
 
-		if (req.query.from || req.query.to) {
-			const { from, to } = req.query;
-			const slicedPhotosJson = photosJson.slice(Number(from), Number(to));
-			return res.status(200).json(slicedPhotosJson);
-		}
-		return res.status(200).json(photosJson);
-	} catch (error) {
-		console.error(error);
-		return res.status(500).json({
-			success: false,
-			message: "Internal server error",
-		});
+	const filteredPhotos = photos.filter(
+		(photo: Photo) => Number(photo.id) !== 0
+	);
+	const photosJson: PhotoJson[] = filteredPhotos.map((photo: Photo) => ({
+		id: Number(photo.id),
+		imageUrl: photo.imageUrl,
+		description: photo.description,
+		timestamp: Number(photo.timestamp),
+	}));
+
+	if (req.query.from || req.query.to) {
+		const { from, to } = req.query;
+		const slicedPhotosJson = photosJson.slice(Number(from), Number(to));
+		return res.status(200).json(slicedPhotosJson);
 	}
+	return res.status(200).json(photosJson);
 };
 
 export default getAllPhotos;
