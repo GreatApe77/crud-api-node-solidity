@@ -8,8 +8,8 @@
     
     "dev": "npx tsx watch src/index.ts",
     "prod": "npx tsc & node dist/index.js",
-    "install": "npm install && cd frontend && npm install && cd ..",
-    "build":"npx tsc && cd frontend && npm run build && cd .."
+    "install": "npm install && cd frontend && npm install ",
+    "build":"npx tsc && cd frontend && npm run build "
   },
   "keywords": [],
   "author": "Mateus Navarro",
